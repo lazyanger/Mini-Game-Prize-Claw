@@ -13,9 +13,10 @@ app.use(express.static(path.join(__dirname + '../front-end'), function() {
 }));
 
 app.get('/api/claw-cranes', function(req, res) {
+	console.log(8888);
 	clawCranes.listCranes(function(list) {
 		res.status(200).send({
-			crane: list.map((crane) => {
+			cranes: list.map((crane) => {
 				return clawCrane(crane);
 			})
 		});
